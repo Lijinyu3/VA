@@ -1,20 +1,23 @@
-import { Zap, Shield, Award } from "lucide-react"
+import { Factory, FileText, Hammer } from "lucide-react"
 
 const highlights = [
   {
-    icon: Zap,
-    title: "Innovative Solutions",
-    description: "Cutting-edge electrical infrastructure products",
+    icon: Factory,
+    title: "Integrated Manufacturing",
+    description:
+      "Connector-focused development and production for utility distribution hardware.",
   },
   {
-    icon: Shield,
-    title: "ISO Certified",
-    description: "Quality management systems certified to international standards",
+    icon: Hammer,
+    title: "Featured Wedge Series",
+    description:
+      "The self-locking wedge range now starts with the 303, 505, and 707 series.",
   },
   {
-    icon: Award,
-    title: "Industry Leader",
-    description: "Decades of excellence in electrical connectivity",
+    icon: FileText,
+    title: "Structured IPC Selection",
+    description:
+      "Current axial piercing model pages start with JCX-1150, JCX-1250, and JCX-1550.",
   },
 ]
 
@@ -23,7 +26,7 @@ export function HighlightsBanner() {
     <section className="bg-primary py-12">
       <div className="mx-auto max-w-7xl px-6">
         <p className="mb-8 text-sm font-semibold uppercase tracking-widest text-primary-foreground/60">
-          Our highlights
+          Key Focus
         </p>
         <div className="grid gap-8 md:grid-cols-3">
           {highlights.map((item) => (

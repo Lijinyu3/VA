@@ -6,14 +6,16 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const slides = [
   {
-    image: "/images/hero-portfolio.jpg",
-    title: "Our Portfolio",
-    subtitle: "Comprehensive electrical infrastructure solutions for a connected world.",
+    image: "/images/brochure-grid-scene.jpg",
+    title: "Power Connection Hardware for Utility Networks",
+    subtitle:
+      "Self-locking wedge clamps and axial piercing connectors for overhead distribution, substation outgoing lines, and insulated cable branching.",
   },
   {
-    image: "/images/hero-legacy.jpg",
-    title: "Our Legacy",
-    subtitle: "Decades of innovation in electrical connectivity and distribution.",
+    image: "/images/brochure-live-grid.jpg",
+    title: "Built for Practical Field Installation",
+    subtitle:
+      "Application scenarios include aerial line connections, service branching, street lighting, and utility outgoing line work.",
   },
 ]
 
@@ -49,9 +51,9 @@ export function HeroCarousel() {
             className="object-cover"
             priority={index === 0}
           />
-          <div className="absolute inset-0 bg-foreground/50" />
+          <div className="absolute inset-0 bg-foreground/55" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="max-w-2xl px-6 text-center">
+            <div className="max-w-3xl px-6 text-center">
               <h1 className="text-balance text-4xl font-bold tracking-tight text-background md:text-6xl lg:text-7xl">
                 {slide.title}
               </h1>
@@ -63,7 +65,6 @@ export function HeroCarousel() {
         </div>
       ))}
 
-      {/* Controls */}
       <button
         onClick={prev}
         className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-background/20 p-2 text-background backdrop-blur-sm transition-colors hover:bg-background/30"
@@ -79,7 +80,6 @@ export function HeroCarousel() {
         <ChevronRight className="h-5 w-5" />
       </button>
 
-      {/* Dots */}
       <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
         {slides.map((_, index) => (
           <button

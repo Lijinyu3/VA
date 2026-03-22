@@ -49,13 +49,13 @@ export default async function ProductDatasheetPage({ params }: ProductDatasheetP
 
         <DatasheetGallerySection
           title="Detail Close-ups"
-          description="Technical close-up visuals for blade edges, locking mechanism quality, and model marking readability."
+          description="Technical detail visuals for locking geometry, internal contact structure, and visible hardware reference."
           items={product.datasheetImagesCloseup}
         />
 
         <DatasheetGallerySection
           title="Dimensional Technical Drawings"
-          description="Engineering visuals focused on L / W / H dimensions, bolt specification, and sectional contact reliability."
+          description="Engineering reference views for overall form, connector orientation, and structural relationship across the current model family."
           items={product.datasheetImagesDimension}
           variant="alt"
         />

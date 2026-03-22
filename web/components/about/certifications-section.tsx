@@ -1,168 +1,168 @@
 "use client"
 
 import { useState } from "react"
-import { ShieldCheck, Award, Leaf, HardHat, Download } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Image from "next/image"
+import { Award, FileText, HardHat, ShieldCheck } from "lucide-react"
 
 const tabs = [
-  { id: "certifications", label: "Certifications" },
-  { id: "awards", label: "Awards" },
-  { id: "social", label: "Social Recognition" },
+  { id: "quality", label: "Quality Control" },
+  { id: "references", label: "Reference Files" },
+  { id: "applications", label: "Applications" },
 ] as const
 
-const certifications = [
+const quality = [
   {
     icon: ShieldCheck,
-    name: "ISO 9001:2015",
-    issuer: "Fundacao Vanzolini",
-    description:
-      "Quality Certificate ISO 9001:2015 provided by the Vanzolini Foundation and ratified by The International Certification Network - IQNET.",
-    hasDownload: true,
-  },
-  {
-    icon: Leaf,
-    name: "ISO 14001:2015",
-    issuer: "Fundacao Vanzolini",
-    description:
-      "Environmental Management Certificate ISO 14001:2015 issued by the Vanzolini Foundation and ratified by the International Certification Network - IQNET.",
-    hasDownload: true,
+    name: "IQC",
+    issuer: "Incoming inspection",
+    description: "Incoming materials are checked against internal and customer requirements.",
   },
   {
     icon: HardHat,
-    name: "ISO 45001",
-    issuer: "FQC - First Quality Certification",
-    description:
-      "Safety and Occupational Health Certificate issued by FQC (First Quality Certification).",
-    hasDownload: false,
+    name: "IPQC",
+    issuer: "Process control",
+    description: "Key quality checkpoints are monitored during assembly.",
+  },
+  {
+    icon: ShieldCheck,
+    name: "FQC",
+    issuer: "Finished product review",
+    description: "Critical parameters are checked before release from the line.",
   },
   {
     icon: Award,
-    name: "UL Certification",
-    issuer: "Underwriters Laboratories Inc.",
-    description:
-      "Issued by Underwriters Laboratories Inc. for copper coated ground rods, grounding accessories and split bolt connectors.",
-    hasDownload: false,
-  },
-  {
-    icon: Award,
-    name: "CSA Certificate",
-    issuer: "Canadian Standards Association",
-    description:
-      "Quality and safety certificate issued by CSA for ground rods and grounding equipment, as well as split bolts.",
-    hasDownload: false,
+    name: "OQC",
+    issuer: "Packaging audit",
+    description: "A final outbound check is completed before warehouse entry and shipment.",
   },
 ]
 
-const awards = [
+const references = [
   {
-    icon: Award,
-    name: "Top Electrical Manufacturer",
-    issuer: "Industry Association of Brazil",
+    icon: FileText,
+    name: "Selection guide",
+    issuer: "Technical data",
     description:
-      "Recognized as the top electrical connector manufacturer in Brazil for consistent quality and innovation.",
-    hasDownload: false,
+      "Current 1 kV selection data covers JCX-1150, JCX-1250, JCX-1350, JCX-1450, and JCX-1550.",
   },
   {
-    icon: Award,
-    name: "Export Excellence",
-    issuer: "Brazilian Trade & Investment",
+    icon: FileText,
+    name: "Reference visuals",
+    issuer: "Supporting material",
     description:
-      "Awarded for outstanding export performance and expanding Brazilian electrical products to international markets.",
-    hasDownload: false,
-  },
-]
-
-const social = [
-  {
-    icon: Award,
-    name: "Paralympic Sports Sponsor",
-    issuer: "Paralympic Committee of Brazil",
-    description:
-      "Proud sponsor supporting Brazilian athletes in international Paralympic competitions.",
-    hasDownload: false,
+      "Patent, innovation, and quality-document visuals support technical communication and product review.",
   },
   {
-    icon: Award,
-    name: "Community Engagement Award",
-    issuer: "Orlandia Municipality",
+    icon: FileText,
+    name: "Model datasheet flow",
+    issuer: "Model pages",
     description:
-      "Recognized for contributions to local community development, education, and social programs in Orlandia, SP.",
-    hasDownload: false,
+      "Product detail pages now lead into datasheet pages so technical follow-up can happen model by model.",
   },
 ]
 
-const tabContent: Record<string, typeof certifications> = {
-  certifications,
-  awards,
-  social,
+const applications = [
+  {
+    icon: Award,
+    name: "Aerial line connections",
+    issuer: "Application scenario",
+    description: "Used for overhead line connection work and general utility branching.",
+  },
+  {
+    icon: Award,
+    name: "Building and street-light branches",
+    issuer: "Application scenario",
+    description:
+      "Building branch connections and street-light tapping remain part of the application mix.",
+  },
+  {
+    icon: Award,
+    name: "Substation outgoing lines",
+    issuer: "Application scenario",
+    description: "Substation outgoing lines remain one of the highlighted utility use cases.",
+  },
+]
+
+const tabContent: Record<string, typeof quality> = {
+  quality,
+  references,
+  applications,
 }
 
 export function CertificationsSection() {
-  const [activeTab, setActiveTab] = useState<(typeof tabs)[number]["id"]>("certifications")
+  const [activeTab, setActiveTab] = useState<(typeof tabs)[number]["id"]>("quality")
 
   return (
-    <section className="bg-secondary py-20 lg:py-28">
+    <section id="quality-process" className="bg-secondary py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-            Quality Assurance
+            Validation & Materials
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Certifications
+            Supporting detail behind the product lines
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-pretty text-muted-foreground">
-            The certifications assure the quality of our products and services.
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-muted-foreground">
+            Quality checkpoints, reference files, and application scenarios are organized into a
+            cleaner structure for technical review.
           </p>
         </div>
 
-        {/* Tabs */}
-        <div className="mt-12 flex flex-wrap justify-center gap-2">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
-                activeTab === tab.id
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-card text-muted-foreground hover:bg-card hover:text-foreground"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Cards */}
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {tabContent[activeTab].map((item) => (
-            <div
-              key={item.name}
-              className="flex flex-col rounded-lg bg-card p-6 shadow-sm"
-            >
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                  <item.icon className="h-6 w-6 text-primary" />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="font-bold text-card-foreground">{item.name}</h3>
-                  <p className="text-xs text-muted-foreground">{item.issuer}</p>
-                </div>
-              </div>
-              <p className="mt-4 flex-1 text-pretty text-sm leading-relaxed text-muted-foreground">
-                {item.description}
-              </p>
-              {item.hasDownload && (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="mt-4 self-start"
+        <div className="mt-12 grid gap-10 lg:grid-cols-[1.7fr_1fr]">
+          <div>
+            <div className="flex flex-wrap gap-2">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
+                    activeTab === tab.id
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-card text-muted-foreground hover:bg-card hover:text-foreground"
+                  }`}
                 >
-                  <Download className="mr-2 h-3.5 w-3.5" />
-                  View / Download
-                </Button>
-              )}
+                  {tab.label}
+                </button>
+              ))}
             </div>
-          ))}
+
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {tabContent[activeTab].map((item) => (
+                <div key={item.name} className="rounded-xl border border-border bg-card p-6 shadow-sm">
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                      <item.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-card-foreground">{item.name}</h3>
+                      <p className="text-xs text-muted-foreground">{item.issuer}</p>
+                    </div>
+                  </div>
+                  <p className="mt-4 text-pretty text-sm leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+            <div className="relative aspect-[4/3] bg-muted">
+              <Image
+                src="/images/brochure-patents-grid.jpg"
+                alt="Patent and certificate visual grid"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-lg font-semibold text-card-foreground">Reference visual set</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Quality, patent, and innovation visuals now sit alongside the rest of the company
+                overview as supporting material.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

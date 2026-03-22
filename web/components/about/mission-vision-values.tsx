@@ -1,31 +1,23 @@
-import { Target, Eye, Heart } from "lucide-react"
+import { Factory, MessageSquare, ShieldCheck } from "lucide-react"
 
 const cards = [
   {
-    icon: Target,
-    title: "Mission",
+    icon: Factory,
+    title: "Product Focus",
     content:
-      "Develop and sell quality products at reasonable prices, valuing service excellence and continuous improvement processes to provide customer satisfaction, all based on ethics and commitment to employees, suppliers and society.",
+      "The current product structure centers on self-locking wedge clamps and axial piercing connectors, with each family organized around clear model names and application use.",
   },
   {
-    icon: Eye,
-    title: "Vision",
+    icon: ShieldCheck,
+    title: "Quality Workflow",
     content:
-      "Be a world market leader, based on sustainability, distinguishing itself by the level of the relationships it establishes, consolidating the institution\u2019s perpetuity while offering excellent and profitable solutions to its clients.",
+      "Incoming inspection, process control, finished testing, and outbound audit define the quality checkpoints behind the product range.",
   },
   {
-    icon: Heart,
-    title: "Values",
-    content: null,
-    list: [
-      "To be a customer\u2019s preference",
-      "Ethical commitment",
-      "People\u2019s safety first",
-      "Integrity and transparency in actions",
-      "Respected, committed and fulfilled people",
-      "Focus on results",
-      "Economic, social and environmental sustainability",
-    ],
+    icon: MessageSquare,
+    title: "Technical Support",
+    content:
+      "Product detail pages, datasheet views, and direct contact paths help move technical conversations forward once a model has been identified.",
   },
 ]
 
@@ -35,10 +27,10 @@ export function MissionVisionValues() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-            Our Foundation
+            How We Work
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Mission, Vision & Values
+            Clear structure for technical review
           </h2>
         </div>
 
@@ -52,24 +44,9 @@ export function MissionVisionValues() {
                 <card.icon className="h-7 w-7 text-primary" />
               </div>
               <h3 className="mt-6 text-xl font-bold text-card-foreground">{card.title}</h3>
-              {card.content && (
-                <p className="mt-3 flex-1 text-pretty leading-relaxed text-muted-foreground">
-                  {card.content}
-                </p>
-              )}
-              {card.list && (
-                <ul className="mt-3 flex flex-1 flex-col gap-2">
-                  {card.list.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground"
-                    >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <p className="mt-3 flex-1 text-pretty leading-relaxed text-muted-foreground">
+                {card.content}
+              </p>
             </div>
           ))}
         </div>

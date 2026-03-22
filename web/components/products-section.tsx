@@ -1,67 +1,27 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { allProducts } from "@/lib/products-data"
 
-const products = [
-  {
-    id: 1,
-    category: "Piercing Connectors",
-    name: "CDP - Piercing Connector",
-    image: "/images/product-piercing-connector.jpg",
-    purpose:
-      "Tap of Insulated Cables, suitable for combinations aluminum to aluminum, aluminum to copper and copper to copper in overhead power distribution lines.",
-  },
-  {
-    id: 2,
-    category: "Compression Copper",
-    name: "TM - Copper Compression Terminal",
-    image: "/images/product-copper-terminal.jpg",
-    purpose:
-      "Termination of copper conductors. High electrical conductivity and corrosion resistance.",
-  },
-  {
-    id: 3,
-    category: "Compression Connectors",
-    name: "SACG - Grounding System",
-    image: "/images/product-grounding.jpg",
-    purpose:
-      "Connection between ground rod to cable and cable to cable. Suitable for copper-clad steel and copper wires and cables.",
-  },
-  {
-    id: 4,
-    category: "Ring Type",
-    name: "TP - Ring Type Pre-insulated Terminals",
-    image: "/images/product-ring-terminal.jpg",
-    purpose:
-      "Termination of rigid or flexible copper cables. Compression connection with high electrical conductivity.",
-  },
-  {
-    id: 5,
-    category: "Bimetallic Terminals",
-    name: "TBTA - Bimetallic Compression Terminal",
-    image: "/images/product-bimetallic.jpg",
-    purpose:
-      "Bimetallic cable to busbar termination. Prevents the formation of galvanic corrosion.",
-  },
-  {
-    id: 6,
-    category: "Grounding Clamps",
-    name: "GTDU - U-Bolt Grounding Clamp",
-    image: "/images/product-grounding-clamp.jpg",
-    purpose:
-      "Connection between ground rod to cable or IPS tube-cable. High electrical conductivity and corrosion resistant.",
-  },
-]
+const featuredProducts = allProducts.map((product) => ({
+  ...product,
+  category: product.model.startsWith("JCX")
+    ? "Axial Piercing Connector"
+    : "Self-locking Wedge Clamp",
+}))
 
 export function ProductsSection() {
   const [page, setPage] = useState(0)
   const itemsPerPage = 3
-  const totalPages = Math.ceil(products.length / itemsPerPage)
-  const displayed = products.slice(page * itemsPerPage, (page + 1) * itemsPerPage)
+  const totalPages = Math.ceil(featuredProducts.length / itemsPerPage)
+  const displayed = useMemo(
+    () => featuredProducts.slice(page * itemsPerPage, (page + 1) * itemsPerPage),
+    [page],
+  )
 
   return (
     <section id="products" className="bg-secondary py-20">
@@ -69,10 +29,10 @@ export function ProductsSection() {
         <div className="flex items-end justify-between">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Most Accessed
+              Featured Models
             </h2>
             <p className="mt-2 text-pretty text-muted-foreground">
-              Check some of the most viewed products
+              Selected models from the self-locking wedge clamp and axial piercing connector range.
             </p>
           </div>
           <Link
@@ -103,23 +63,23 @@ export function ProductsSection() {
                   {product.category}
                 </span>
                 <h3 className="mt-2 text-base font-semibold text-card-foreground">
-                  {product.name}
+                  {product.model}
                 </h3>
+                <p className="mt-2 text-sm font-medium text-card-foreground">{product.name}</p>
                 <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                  {product.purpose}
+                  {product.description}
                 </p>
                 <Link
-                  href="#"
+                  href={`/products/${product.slug}`}
                   className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80"
                 >
-                  See Details <ArrowRight className="h-3.5 w-3.5" />
+                  View Details <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Pagination */}
         <div className="mt-8 flex items-center justify-center gap-2">
           <Button
             variant="outline"

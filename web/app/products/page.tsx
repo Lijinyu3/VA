@@ -10,7 +10,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Products - VA",
   description:
-    "Explore our full range of wedge clamps and piercing clamps for overhead power line and insulated cable applications. Engineered for reliability.",
+    "Explore VA wedge clamp and axial piercing connector models for overhead distribution and insulated cable branch connections.",
 }
 
 export default function ProductsPage() {
@@ -20,8 +20,8 @@ export default function ProductsPage() {
       <main className="pt-14">
         <PageHero
           title="Our Products"
-          subtitle="Precision-engineered clamps and connectors trusted by utilities across the globe"
-          image="/images/hero-portfolio.jpg"
+          subtitle="Self-locking wedge clamps and axial piercing connectors for practical utility installation scenarios"
+          image="/images/brochure-grid-scene.jpg"
           breadcrumb="Products"
         />
 
@@ -30,16 +30,16 @@ export default function ProductsPage() {
         <CategorySection
           id="wedge-clamps"
           label="Category 01"
-          title="Wedge Clamps"
-          subtitle="Self-locking wedge mechanism clamps for dead-end, strain, and service drop applications on overhead conductors. Available in aluminum alloy and galvanized steel for a wide range of cable sizes and voltage ratings."
+          title="Self-locking Wedge Clamps"
+          subtitle="The 303, 505, and 707 series share the same self-locking wedge concept, hammer installation logic, and utility-focused application scope."
           products={wedgeClamps}
         />
 
         <CategorySection
           id="piercing-clamps"
           label="Category 02"
-          title="Piercing Clamps"
-          subtitle="Insulation piercing connectors that create reliable electrical contact without stripping cable insulation. Torque-controlled shear bolts guarantee consistent clamping force for long-term performance."
+          title="Axial Piercing Connectors"
+          subtitle="Current featured models cover insulated conductor branching without stripping, with single-bolt installation and 1 kV distribution use."
           products={piercingClamps}
           variant="alt"
         />

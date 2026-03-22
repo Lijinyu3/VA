@@ -12,7 +12,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "About Us - VA",
   description:
-    "Learn about VA and our focus on electrical connector manufacturing for power distribution applications.",
+    "Learn about VA's wedge clamps, axial piercing connectors, and utility application context.",
 }
 
 export default function AboutPage() {

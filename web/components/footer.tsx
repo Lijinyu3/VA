@@ -5,21 +5,18 @@ const footerLinks = {
   Company: [
     { label: "About Us", href: "/about" },
     { label: "Contact Us", href: "/contact" },
-    { label: "Our Legacy", href: "#" },
-    { label: "ESG", href: "#" },
-    { label: "Careers", href: "#" },
+    { label: "All Products", href: "/products" },
   ],
   Products: [
     { label: "All Products", href: "/products" },
-    { label: "Wedge Clamps", href: "/products#wedge-clamps" },
-    { label: "Piercing Clamps", href: "/products#piercing-clamps" },
-    { label: "Download Catalog", href: "#" },
+    { label: "Self-locking Wedge Clamps", href: "/products#wedge-clamps" },
+    { label: "Axial Piercing Connectors", href: "/products#piercing-clamps" },
+    { label: "Contact for Technical Pack", href: "/contact" },
   ],
-  Solutions: [
-    { label: "Substations", href: "#" },
-    { label: "Underground Energy", href: "#" },
-    { label: "Rural Distribution", href: "#" },
-    { label: "Smart Grid", href: "#" },
+  Applications: [
+    { label: "Quality Process", href: "/about#quality-process" },
+    { label: "Application Scenarios", href: "/about#application-scenarios" },
+    { label: "Featured Models", href: "/products" },
   ],
 }
 
@@ -28,12 +25,11 @@ export function Footer() {
     <footer className="bg-foreground text-background">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
-          {/* Brand */}
           <div className="lg:col-span-2">
             <span className="text-xl font-bold tracking-wider">VA</span>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-background/60">
-              Manufacturer of wedge clamps, piercing clamps, and connector solutions for power
-              distribution projects.
+              Power connection hardware focused on self-locking wedge clamps, axial piercing
+              connectors, and practical field applications.
             </p>
             <div className="mt-6 flex flex-col gap-3">
               <div className="flex items-center gap-2 text-sm text-background/60">
@@ -51,7 +47,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-background/80">

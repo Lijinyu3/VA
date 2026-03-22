@@ -1,47 +1,39 @@
-"use client"
-
 const timelineEvents = [
   {
-    year: "1973",
-    title: "The Beginning",
+    year: "01",
+    title: "Incoming inspection",
     description:
-      "The first production line starts with electrical connectors and copper terminals for power infrastructure projects.",
+      "Incoming materials are checked against internal and customer requirements before assembly begins.",
   },
   {
-    year: "1985",
-    title: "Expansion",
+    year: "02",
+    title: "Assembly control",
     description:
-      "First major plant expansion, adding ground rod manufacturing and increasing production capacity significantly.",
+      "Key process points are reviewed during assembly to keep locking hardware and contact structures consistent.",
   },
   {
-    year: "1995",
-    title: "ISO Certification",
+    year: "03",
+    title: "Finished testing",
     description:
-      "Achieved ISO 9001 quality management certification, establishing new standards for the Brazilian electrical industry.",
+      "Critical parameters are checked before products move forward to the next stage.",
   },
   {
-    year: "2003",
-    title: "Portfolio Expansion",
+    year: "04",
+    title: "Packaging audit",
     description:
-      "Product coverage expands into wider connection and conductor-support categories for utility networks.",
+      "A final outbound review is completed before warehouse entry and shipment.",
   },
   {
-    year: "2010",
-    title: "International Reach",
+    year: "05",
+    title: "Application matching",
     description:
-      "Products receive UL, CSA and Q-Cert certifications, opening doors to markets across the Americas and beyond.",
+      "These products are positioned for aerial lines, building branches, street lighting, and substation outgoing lines.",
   },
   {
-    year: "2018",
-    title: "VA Brand",
+    year: "06",
+    title: "Technical follow-up",
     description:
-      "Operations are consolidated under the VA brand with multi-plant manufacturing capability.",
-  },
-  {
-    year: "Today",
-    title: "Industry Leader",
-    description:
-      "National leader in ground rods, connectors and terminals, with a comprehensive portfolio serving the entire energy sector.",
+      "After a first review, model discussion, datasheet sharing, and inquiry handling keep the project conversation moving.",
   },
 ]
 
@@ -51,16 +43,15 @@ export function TimelineSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-            Our Journey
+            Process Snapshot
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Timeline
+            From Inspection to Application
           </h2>
         </div>
 
         <div className="relative mt-16">
-          {/* Center line */}
-          <div className="absolute left-4 top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-px" />
+          <div className="absolute bottom-0 left-4 top-0 w-px bg-border md:left-1/2 md:-translate-x-px" />
 
           <div className="flex flex-col gap-12">
             {timelineEvents.map((event, index) => (
@@ -70,12 +61,10 @@ export function TimelineSection() {
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                {/* Dot */}
                 <div className="absolute left-4 top-0 z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border-4 border-background bg-primary md:left-1/2">
                   <div className="h-2 w-2 rounded-full bg-primary-foreground" />
                 </div>
 
-                {/* Content */}
                 <div
                   className={`ml-12 md:ml-0 md:w-1/2 ${
                     index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16 md:text-left"

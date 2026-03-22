@@ -6,8 +6,8 @@ export function AboutHero() {
   return (
     <section className="relative h-[40vh] min-h-[320px] w-full overflow-hidden lg:h-[50vh]">
       <Image
-        src="/images/about-hero.jpg"
-        alt="VA manufacturing complex"
+        src="/images/brochure-live-grid.jpg"
+        alt="VA utility application reference"
         fill
         className="object-cover"
         priority
@@ -15,7 +15,7 @@ export function AboutHero() {
       <div className="absolute inset-0 bg-foreground/60" />
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <h1 className="text-balance text-4xl font-bold tracking-tight text-background md:text-5xl lg:text-6xl">
-          About Us
+          About VA
         </h1>
         <nav
           aria-label="Breadcrumb"

@@ -1,72 +1,67 @@
 import Image from "next/image"
-import { MapPin } from "lucide-react"
 
-const units = [
+const scenarios = [
   {
-    name: "Orlandia - SP",
-    image: "/images/unit-orlandia.jpg",
-    area: "256,000 m\u00B2",
+    name: "Factory context",
+    image: "/images/about-factory.jpg",
+    area: "Production environment",
     description:
-      "Main manufacturing complex and headquarters, housing the primary production lines for connectors, terminals, and ground rods.",
+      "Factory imagery keeps the product presentation tied to a real manufacturing setting.",
   },
   {
-    name: "Campinas - SP",
-    image: "/images/unit-campinas.jpg",
-    area: "42,000 m\u00B2",
+    name: "Live utility environment",
+    image: "/images/brochure-live-grid.jpg",
+    area: "Field validation",
     description:
-      "Specialized facility focused on advanced cable manufacturing and bimetallic conductor production.",
+      "These visuals show the products discussed in energized utility environments and line-work contexts.",
   },
   {
-    name: "Tres Lagoas - MS",
-    image: "/images/unit-tres-lagoas.jpg",
-    area: "45,000 m\u00B2",
+    name: "Substation and network context",
+    image: "/images/brochure-grid-scene.jpg",
+    area: "Utility infrastructure",
     description:
-      "Strategic plant serving the central-western region with cable and conductor manufacturing capabilities.",
+      "Application imagery covers outgoing line work and broader utility network connection points.",
   },
 ]
 
 export function UnitsSection() {
   return (
-    <section className="py-20 lg:py-28">
+    <section id="application-scenarios" className="py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-            Our Presence
+            Field and Utility Context
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Manufacturing Units
+            Real visuals for practical use cases
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-muted-foreground">
-            Our plants cover a total area of 343,000 m&sup2; across the states of Sao Paulo and
-            Mato Grosso do Sul, producing and meeting the requirements of our customers with top
-            quality.
+            The current presentation combines factory, utility, and testing imagery to show where
+            the product range fits in real work.
           </p>
         </div>
 
         <div className="mt-14 grid gap-8 md:grid-cols-3">
-          {units.map((unit) => (
+          {scenarios.map((scenario) => (
             <div
-              key={unit.name}
+              key={scenario.name}
               className="group overflow-hidden rounded-lg bg-card shadow-sm transition-shadow hover:shadow-md"
             >
               <div className="relative h-52 overflow-hidden">
                 <Image
-                  src={unit.image}
-                  alt={`VA ${unit.name} plant`}
+                  src={scenario.image}
+                  alt={scenario.name}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-accent" />
-                  <h3 className="font-bold text-card-foreground">{unit.name}</h3>
-                </div>
-                <span className="mt-1 inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
-                  {unit.area}
+                <span className="inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
+                  {scenario.area}
                 </span>
+                <h3 className="mt-3 font-bold text-card-foreground">{scenario.name}</h3>
                 <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground">
-                  {unit.description}
+                  {scenario.description}
                 </p>
               </div>
             </div>

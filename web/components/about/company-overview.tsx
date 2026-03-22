@@ -1,10 +1,9 @@
 import Image from "next/image"
-import { Factory, MapPin, Award } from "lucide-react"
 
 const stats = [
-  { value: "343,000", unit: "m\u00B2", label: "Total plant area" },
-  { value: "3", unit: "", label: "Manufacturing units" },
-  { value: "50+", unit: "", label: "Years of experience" },
+  { value: "303 / 505 / 707", label: "Featured wedge series" },
+  { value: "JCX-1150 to 1550", label: "Featured IPC models" },
+  { value: "1 kV", label: "Current published IPC range" },
 ]
 
 export function CompanyOverview() {
@@ -12,47 +11,44 @@ export function CompanyOverview() {
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          {/* Text */}
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-accent">
               Who We Are
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Reliable partner in electrical connectivity solutions
+              Power connection products with a clear technical structure
             </h2>
             <p className="mt-6 text-pretty leading-relaxed text-muted-foreground">
-              VA serves transmission and distribution projects with wedge clamps, insulation
-              piercing connectors, and installation tools for overhead and insulated cable
-              networks. We focus on durable mechanical design, stable electrical contact, and
-              repeatable field installation performance.
+              VA focuses on connector hardware for overhead distribution and insulated conductor
+              branching. The current product presentation centers on self-locking wedge clamps,
+              axial piercing connectors, and the application context needed to explain how those
+              products are used.
             </p>
             <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-              Our portfolio is built for utility and contractor use, with emphasis on material
-              consistency, controlled torque installation, and long-term outdoor reliability.
-              We continue expanding technical documentation, test evidence, and delivery support
-              for global customers.
+              We emphasize model-based detail pages, application imagery, and datasheet routes
+              that keep product review practical for engineers, buyers, and project teams.
             </p>
 
-            {/* Stats */}
-            <div className="mt-10 grid grid-cols-3 gap-6">
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
               {stats.map((stat) => (
-                <div key={stat.label} className="text-center lg:text-left">
-                  <p className="text-2xl font-bold text-primary md:text-3xl">
-                    {stat.value}
-                    <span className="text-lg">{stat.unit}</span>
+                <div
+                  key={stat.label}
+                  className="rounded-xl border border-border bg-card p-4 text-center shadow-sm lg:text-left"
+                >
+                  <p className="text-lg font-bold text-primary md:text-xl">{stat.value}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                    {stat.label}
                   </p>
-                  <p className="mt-1 text-xs text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Images */}
           <div className="relative">
             <div className="overflow-hidden rounded-lg">
               <Image
-                src="/images/about-factory.jpg"
-                alt="VA manufacturing facility"
+                src="/images/brochure-grid-scene.jpg"
+                alt="VA utility application and infrastructure reference"
                 width={640}
                 height={420}
                 className="h-auto w-full object-cover"
@@ -60,8 +56,8 @@ export function CompanyOverview() {
             </div>
             <div className="absolute -bottom-6 -left-6 hidden overflow-hidden rounded-lg border-4 border-background shadow-xl lg:block">
               <Image
-                src="/images/about-team.jpg"
-                alt="VA team"
+                src="/images/brochure-piercing-main.jpg"
+                alt="VA piercing connector product visual"
                 width={260}
                 height={180}
                 className="h-auto w-full object-cover"

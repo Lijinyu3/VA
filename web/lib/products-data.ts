@@ -40,277 +40,278 @@ function pendingImage(caption: string): ProductImageItem {
   }
 }
 
-function applicationImages(productName: string): ProductImageItem[] {
+function readyImage(src: string, alt: string, caption: string): ProductImageItem {
+  return {
+    src,
+    alt,
+    caption,
+    status: "ready",
+  }
+}
+
+function wedgeApplicationImages(model: string): ProductImageItem[] {
   return [
-    {
-      src: "/images/substations.jpg",
-      alt: `${productName} installed in substation distribution setup`,
-      caption: "Installed on distribution cable branch in utility infrastructure.",
-      status: "ready",
-    },
-    {
-      src: "/images/rural-energy.jpg",
-      alt: `${productName} used in rural distribution line`,
-      caption: "Field application in overhead rural distribution scenario.",
-      status: "ready",
-    },
-    {
-      src: "/images/underground-energy.jpg",
-      alt: `${productName} installation workflow reference`,
-      caption: "Installation workflow reference: conductor insert to final lock state.",
-      status: "ready",
-    },
+    readyImage(
+      "/images/brochure-live-grid.jpg",
+      `${model} wedge clamp on overhead distribution infrastructure`,
+      "Reference application for overhead line connection and field installation workflows.",
+    ),
+    readyImage(
+      "/images/brochure-field-testing.jpg",
+      `${model} wedge clamp field validation reference`,
+      "Field verification scene aligned with utility maintenance and installation environments.",
+    ),
+    readyImage(
+      "/images/brochure-grid-scene.jpg",
+      `${model} wedge clamp utility network application`,
+      "Utility infrastructure context for overhead distribution and outgoing line use.",
+    ),
+  ]
+}
+
+function piercingApplicationImages(model: string): ProductImageItem[] {
+  return [
+    readyImage(
+      "/images/brochure-live-grid.jpg",
+      `${model} axial piercing connector on aerial line`,
+      "Application reference for insulated aerial line branch connections.",
+    ),
+    readyImage(
+      "/images/brochure-field-testing.jpg",
+      `${model} axial piercing connector field installation`,
+      "Relevant for building T-connections, street lighting branches, and service tap scenarios.",
+    ),
+    readyImage(
+      "/images/brochure-grid-scene.jpg",
+      `${model} axial piercing connector in utility infrastructure`,
+      "Suitable for substation outgoing lines and broader distribution network use.",
+    ),
+  ]
+}
+
+function wedgePortraitImages(model: string): ProductImageItem[] {
+  return [
+    readyImage(
+      "/images/brochure-wedge-main.jpg",
+      `${model} self-locking wedge clamp family portrait`,
+      "Product portrait for the self-locking wedge clamp family.",
+    ),
+    pendingImage("Additional angle view pending from the latest factory photo set."),
+    pendingImage("Exploded structure view pending for wedge body and locking module."),
+  ]
+}
+
+function piercingPortraitImages(model: string): ProductImageItem[] {
+  return [
+    readyImage(
+      "/images/brochure-piercing-main.jpg",
+      `${model} axial piercing connector family portrait`,
+      "Product portrait showing the axial piercing connector family.",
+    ),
+    pendingImage("Additional angle view pending from the latest product photo set."),
+    pendingImage("Exploded structure view pending for housing, blade, and torque nut."),
+  ]
+}
+
+function wedgeDatasheetCloseups(model: string): ProductImageItem[] {
+  return [
+    readyImage(
+      "/images/brochure-wedge-tech-3.png",
+      `${model} wedge clamp isometric technical view`,
+      "Isometric technical view showing the wedge body opening and locking geometry.",
+    ),
+    readyImage(
+      "/images/brochure-wedge-tech-1.png",
+      `${model} wedge clamp internal profile reference`,
+      "Profile reference highlighting the internal channel and conductor path.",
+    ),
+    pendingImage(`${model} marking and series identification close-up pending.`),
+  ]
+}
+
+function wedgeDatasheetDimensions(model: string): ProductImageItem[] {
+  return [
+    readyImage(
+      "/images/brochure-wedge-tech-2.png",
+      `${model} wedge clamp face technical view`,
+      "Face-view line drawing used as a structural reference for the wedge clamp family.",
+    ),
+    readyImage(
+      "/images/brochure-wedge-tech-1.png",
+      `${model} wedge clamp profile technical view`,
+      "Profile drawing for body proportions and installation reference.",
+    ),
+    readyImage(
+      "/images/brochure-wedge-tech-3.png",
+      `${model} wedge clamp isometric structural view`,
+      "Isometric structural view for the overall clamp form and opening relationship.",
+    ),
+  ]
+}
+
+function piercingDatasheetCloseups(model: string): ProductImageItem[] {
+  return [
+    readyImage(
+      "/images/brochure-piercing-cutaway.png",
+      `${model} piercing tooth cutaway`,
+      "Cutaway detail showing the piercing teeth and internal contact structure.",
+    ),
+    readyImage(
+      "/images/brochure-piercing-tech-2.png",
+      `${model} piercing connector hardware reference`,
+      "Technical reference view showing the bolt position and body layout.",
+    ),
+    pendingImage(`${model} body marking and conductor range close-up pending.`),
+  ]
+}
+
+function piercingDatasheetDimensions(model: string): ProductImageItem[] {
+  return [
+    readyImage(
+      "/images/brochure-piercing-tech-1.png",
+      `${model} piercing connector technical drawing one`,
+      "Technical drawing reference for the connector body and installation orientation.",
+    ),
+    readyImage(
+      "/images/brochure-piercing-tech-2.png",
+      `${model} piercing connector technical drawing two`,
+      "Front structural reference for the connector body and bolt alignment.",
+    ),
+    readyImage(
+      "/images/brochure-piercing-tech-3.png",
+      `${model} piercing connector technical drawing three`,
+      "Additional structural drawing for body shape and contact-side positioning.",
+    ),
+    readyImage(
+      "/images/brochure-axial-solution.png",
+      `${model} axial piercing technical concept`,
+      "Technical concept graphic illustrating the axial contact solution used in the IPC line.",
+    ),
   ]
 }
 
 export const wedgeClamps: ProductDetailData[] = [
   {
-    id: "w-100",
-    slug: "w-100",
-    model: "W-100",
-    name: "Standard Wedge Tension Clamp",
-    image: "/images/wedge-clamp-w1.jpg",
+    id: "303",
+    slug: "303",
+    model: "303",
+    name: "Self-locking Wedge Clamp 303",
+    image: "/images/brochure-wedge-main.jpg",
     description:
-      "Automatic self-locking wedge clamp for dead-end and strain applications on overhead lines. The C-shaped aluminum body with pre-formed wedge insert provides reliable retention under dynamic loading.",
+      "Self-locking wedge clamp from the 303 series for overhead conductor retention and strain connections. The elastic C-component design is positioned as a practical answer to conductor creep during long-term service.",
     specs: [
-      { label: "Material", value: "Aluminum Alloy" },
-      { label: "Voltage Rating", value: "Up to 35 kV" },
-      { label: "Cable Range", value: "25 - 185 mm2" },
-      { label: "Tensile Load", value: "70 kN" },
+      { label: "Series", value: "303" },
+      { label: "Product Line", value: "Self-locking wedge clamp" },
+      { label: "Installation", value: "Hammer knock-type" },
+      { label: "Core Design", value: "Elastic C-component" },
     ],
-    detailImagesPortrait: [
-      {
-        src: "/images/wedge-clamp-w1.jpg",
-        alt: "W-100 white background full product view",
-        caption: "White background full-view portrait for structure verification.",
-        status: "ready",
-      },
-      {
-        src: "/images/wedge-clamp-w2.jpg",
-        alt: "W-100 side-angle product view",
-        caption: "Multi-angle view showing clamp geometry and tightening position.",
-        status: "ready",
-      },
-      pendingImage("Exploded structural view (housing and internal locking module)."),
-    ],
-    detailImagesApplication: applicationImages("W-100 wedge clamp"),
-    datasheetImagesCloseup: [
-      pendingImage("Locking texture close-up for self-locking grip validation."),
-      pendingImage("Material and surface finish close-up for durability assessment."),
-      pendingImage("Laser marking close-up (model, cable range, standard code)."),
-    ],
-    datasheetImagesDimension: [
-      pendingImage("Dimension drawing with L / W / H and bolt specification."),
-      pendingImage("Sectional view after conductor installation."),
-    ],
+    detailImagesPortrait: wedgePortraitImages("303"),
+    detailImagesApplication: wedgeApplicationImages("303"),
+    datasheetImagesCloseup: wedgeDatasheetCloseups("303"),
+    datasheetImagesDimension: wedgeDatasheetDimensions("303"),
     datasheetPdf: null,
   },
   {
-    id: "w-200",
-    slug: "w-200",
-    model: "W-200",
-    name: "Heavy-Duty ACSR Wedge Clamp",
-    image: "/images/wedge-clamp-w2.jpg",
+    id: "505",
+    slug: "505",
+    model: "505",
+    name: "Self-locking Wedge Clamp 505",
+    image: "/images/brochure-wedge-main.jpg",
     description:
-      "Hot-dip galvanized steel wedge strain clamp optimized for ACSR conductors. Bail-type attachment allows easy installation on transmission tower hardware with high mechanical strength.",
+      "Self-locking wedge clamp from the 505 series for overhead distribution projects that need fast field installation and repeatable holding performance. The wedge family is presented as simple to install, simple to disassemble, and built for practical outdoor use.",
     specs: [
-      { label: "Material", value: "Galvanized Steel" },
-      { label: "Voltage Rating", value: "Up to 72.5 kV" },
-      { label: "Cable Range", value: "70 - 400 mm2" },
-      { label: "Tensile Load", value: "160 kN" },
+      { label: "Series", value: "505" },
+      { label: "Product Line", value: "Self-locking wedge clamp" },
+      { label: "Installation", value: "Hammer knock-type" },
+      { label: "Service Focus", value: "Overhead distribution" },
     ],
-    detailImagesPortrait: [
-      {
-        src: "/images/wedge-clamp-w2.jpg",
-        alt: "W-200 white background full product view",
-        caption: "Industrial portrait emphasizing body robustness and clamping geometry.",
-        status: "ready",
-      },
-      {
-        src: "/images/wedge-clamp-w1.jpg",
-        alt: "W-200 front-angle product view",
-        caption: "Front and side geometry reference for installation evaluation.",
-        status: "ready",
-      },
-      pendingImage("Exploded view of wedge body and locking insert."),
-    ],
-    detailImagesApplication: applicationImages("W-200 wedge clamp"),
-    datasheetImagesCloseup: [
-      pendingImage("Self-lock module texture close-up under high-tension profile."),
-      pendingImage("Locking mechanism close-up for holding-force validation."),
-      pendingImage("Model and standard marking close-up."),
-    ],
-    datasheetImagesDimension: [
-      pendingImage("Mechanical outline drawing with L / W / H and bolt details."),
-      pendingImage("Conductor contact sectional drawing."),
-    ],
+    detailImagesPortrait: wedgePortraitImages("505"),
+    detailImagesApplication: wedgeApplicationImages("505"),
+    datasheetImagesCloseup: wedgeDatasheetCloseups("505"),
+    datasheetImagesDimension: wedgeDatasheetDimensions("505"),
     datasheetPdf: null,
   },
   {
-    id: "w-50",
-    slug: "w-50",
-    model: "W-50",
-    name: "Compact Service Drop Wedge Clamp",
-    image: "/images/wedge-clamp-w3.jpg",
+    id: "707",
+    slug: "707",
+    model: "707",
+    name: "Self-locking Wedge Clamp 707",
+    image: "/images/brochure-wedge-main.jpg",
     description:
-      "Lightweight aluminum wedge clamp for service drop and secondary distribution conductors. Compact form factor enables dense installations with integrated wedge retention mechanism.",
+      "Self-locking wedge clamp from the 707 series, kept within the same patented family structure used across the wedge clamp range. This series is presented together with 303 and 505 as part of VA's flagship wedge connector offering for power distribution work.",
     specs: [
-      { label: "Material", value: "Aluminum Alloy" },
-      { label: "Voltage Rating", value: "Up to 1 kV" },
-      { label: "Cable Range", value: "10 - 70 mm2" },
-      { label: "Tensile Load", value: "20 kN" },
+      { label: "Series", value: "707" },
+      { label: "Product Line", value: "Self-locking wedge clamp" },
+      { label: "Installation", value: "Hammer knock-type" },
+      { label: "Family Position", value: "Flagship wedge series" },
     ],
-    detailImagesPortrait: [
-      {
-        src: "/images/wedge-clamp-w3.jpg",
-        alt: "W-50 white background full product view",
-        caption: "Compact full-view portrait for small-size service drop applications.",
-        status: "ready",
-      },
-      {
-        src: "/images/wedge-clamp-w1.jpg",
-        alt: "W-50 top-angle product view",
-        caption: "Top-angle view highlighting opening and tightening path.",
-        status: "ready",
-      },
-      pendingImage("Exploded view for compact body and insert components."),
-    ],
-    detailImagesApplication: applicationImages("W-50 wedge clamp"),
-    datasheetImagesCloseup: [
-      pendingImage("Clamping edge close-up for grip stability review."),
-      pendingImage("Body detail close-up for casting quality review."),
-      pendingImage("Marking close-up including model and cable range."),
-    ],
-    datasheetImagesDimension: [
-      pendingImage("Dimension drawing with L / W / H annotations."),
-      pendingImage("Installed cross-section contact drawing."),
-    ],
+    detailImagesPortrait: wedgePortraitImages("707"),
+    detailImagesApplication: wedgeApplicationImages("707"),
+    datasheetImagesCloseup: wedgeDatasheetCloseups("707"),
+    datasheetImagesDimension: wedgeDatasheetDimensions("707"),
     datasheetPdf: null,
   },
 ]
 
 export const piercingClamps: ProductDetailData[] = [
   {
-    id: "p-100",
-    slug: "p-100",
-    model: "P-100",
-    name: "Low Voltage Piercing Connector",
-    image: "/images/piercing-clamp-p1.jpg",
+    id: "jcx-1150",
+    slug: "jcx-1150",
+    model: "JCX-1150",
+    name: "Axial Piercing Connector JCX-1150",
+    image: "/images/brochure-piercing-main.jpg",
     description:
-      "Insulation piercing connector for LV insulated cables. Shear-head torque bolt ensures consistent contact pressure without cable stripping. Suitable for AL-AL, AL-CU, and CU-CU combinations.",
+      "Axial piercing connector for 1 kV insulated conductors. The configuration enables branch connection without stripping insulation and uses a single bolt for controlled installation.",
     specs: [
-      { label: "Material", value: "Polymer / Tin-plated Copper" },
-      { label: "Voltage Rating", value: "Up to 1 kV" },
-      { label: "Main Cable", value: "16 - 150 mm2" },
-      { label: "Tap Cable", value: "1.5 - 35 mm2" },
+      { label: "Voltage", value: "1 kV" },
+      { label: "Main Conductor", value: "4 - 120 mm²" },
+      { label: "Tap Conductor", value: "1.5 - 10 mm²" },
+      { label: "Bolts", value: "1" },
     ],
-    detailImagesPortrait: [
-      {
-        src: "/images/piercing-clamp-p1.jpg",
-        alt: "P-100 white background full product view",
-        caption: "White background portrait showing overall piercing connector structure.",
-        status: "ready",
-      },
-      {
-        src: "/images/piercing-clamp-p2.jpg",
-        alt: "P-100 side-angle product view",
-        caption: "Multi-angle view showing cap opening and torque nut position.",
-        status: "ready",
-      },
-      pendingImage("Exploded view: top cover, bottom body, blade and shear-head nut."),
-    ],
-    detailImagesApplication: applicationImages("P-100 piercing connector"),
-    datasheetImagesCloseup: [
-      pendingImage("Piercing blade close-up for conductive edge assessment."),
-      pendingImage("Torque locking mechanism close-up."),
-      pendingImage("Marking close-up with model and cable range."),
-    ],
-    datasheetImagesDimension: [
-      pendingImage("Technical drawing with L / W / H and bolt specification."),
-      pendingImage("Installed section drawing for contact reliability review."),
-    ],
+    detailImagesPortrait: piercingPortraitImages("JCX-1150"),
+    detailImagesApplication: piercingApplicationImages("JCX-1150"),
+    datasheetImagesCloseup: piercingDatasheetCloseups("JCX-1150"),
+    datasheetImagesDimension: piercingDatasheetDimensions("JCX-1150"),
     datasheetPdf: null,
   },
   {
-    id: "p-200",
-    slug: "p-200",
-    model: "P-200",
-    name: "Medium Voltage Piercing Connector",
-    image: "/images/piercing-clamp-p2.jpg",
+    id: "jcx-1250",
+    slug: "jcx-1250",
+    model: "JCX-1250",
+    name: "Axial Piercing Connector JCX-1250",
+    image: "/images/brochure-piercing-main.jpg",
     description:
-      "Heavy-duty insulation piercing connector rated for medium voltage networks. Enhanced polymer housing provides superior dielectric strength with waterproof sealing for outdoor installation.",
+      "Axial piercing connector for 1 kV insulated distribution networks, positioned for aluminum and copper stranded conductor connections without insulation stripping. This model uses a single-bolt installation structure.",
     specs: [
-      { label: "Material", value: "Polymer / Copper Alloy" },
-      { label: "Voltage Rating", value: "Up to 35 kV" },
-      { label: "Main Cable", value: "50 - 240 mm2" },
-      { label: "Tap Cable", value: "16 - 95 mm2" },
+      { label: "Voltage", value: "1 kV" },
+      { label: "Main Conductor", value: "10 - 95 mm²" },
+      { label: "Tap Conductor", value: "4 - 25 mm²" },
+      { label: "Bolts", value: "1" },
     ],
-    detailImagesPortrait: [
-      {
-        src: "/images/piercing-clamp-p2.jpg",
-        alt: "P-200 white background full product view",
-        caption: "Main product portrait with full connector profile.",
-        status: "ready",
-      },
-      {
-        src: "/images/piercing-clamp-p3.jpg",
-        alt: "P-200 top-angle product view",
-        caption: "Top-angle perspective for opening geometry and nut position.",
-        status: "ready",
-      },
-      pendingImage("Exploded structural view of housing, blade and locking components."),
-    ],
-    detailImagesApplication: applicationImages("P-200 piercing connector"),
-    datasheetImagesCloseup: [
-      pendingImage("Blade and conductive path close-up."),
-      pendingImage("Sealing and locking interface close-up."),
-      pendingImage("Marking close-up with standards and range."),
-    ],
-    datasheetImagesDimension: [
-      pendingImage("Dimensional drawing with major mechanical points."),
-      pendingImage("Sectional contact view after installation."),
-    ],
+    detailImagesPortrait: piercingPortraitImages("JCX-1250"),
+    detailImagesApplication: piercingApplicationImages("JCX-1250"),
+    datasheetImagesCloseup: piercingDatasheetCloseups("JCX-1250"),
+    datasheetImagesDimension: piercingDatasheetDimensions("JCX-1250"),
     datasheetPdf: null,
   },
   {
-    id: "p-50",
-    slug: "p-50",
-    model: "P-50",
-    name: "Multi-Tap Street Lighting Connector",
-    image: "/images/piercing-clamp-p3.jpg",
+    id: "jcx-1550",
+    slug: "jcx-1550",
+    model: "JCX-1550",
+    name: "Axial Piercing Connector JCX-1550",
+    image: "/images/brochure-piercing-main.jpg",
     description:
-      "Compact multi-port piercing connector designed for street lighting and public illumination circuits. Multiple tap-off points from a single main cable position for efficient branch connections.",
+      "Axial piercing connector for 1 kV circuits where both main and tap conductors need broader coverage. This model pairs torque-control installation with tin-plated copper alloy contact parts and UV-resistant housing materials.",
     specs: [
-      { label: "Material", value: "Polymer / Tin-plated Copper" },
-      { label: "Voltage Rating", value: "Up to 1 kV" },
-      { label: "Main Cable", value: "16 - 95 mm2" },
-      { label: "Tap Cable", value: "1.5 - 16 mm2" },
+      { label: "Voltage", value: "1 kV" },
+      { label: "Main Conductor", value: "16 - 120 mm²" },
+      { label: "Tap Conductor", value: "16 - 120 mm²" },
+      { label: "Bolts", value: "1" },
     ],
-    detailImagesPortrait: [
-      {
-        src: "/images/piercing-clamp-p3.jpg",
-        alt: "P-50 white background full product view",
-        caption: "Compact portrait focused on multi-tap connector footprint.",
-        status: "ready",
-      },
-      {
-        src: "/images/piercing-clamp-p1.jpg",
-        alt: "P-50 side-angle product view",
-        caption: "Angle view showing branch entry and fastening point.",
-        status: "ready",
-      },
-      pendingImage("Exploded view for branch tap architecture and internal module."),
-    ],
-    detailImagesApplication: applicationImages("P-50 piercing connector"),
-    datasheetImagesCloseup: [
-      pendingImage("Blade edge close-up for piercing reliability."),
-      pendingImage("Locking feature close-up for branch cable fixation."),
-      pendingImage("Model and cable-range marking close-up."),
-    ],
-    datasheetImagesDimension: [
-      pendingImage("Overall dimensions with L / W / H and bolt details."),
-      pendingImage("Installed internal contact section drawing."),
-    ],
+    detailImagesPortrait: piercingPortraitImages("JCX-1550"),
+    detailImagesApplication: piercingApplicationImages("JCX-1550"),
+    datasheetImagesCloseup: piercingDatasheetCloseups("JCX-1550"),
+    datasheetImagesDimension: piercingDatasheetDimensions("JCX-1550"),
     datasheetPdf: null,
   },
 ]

@@ -4,19 +4,22 @@ import { ArrowRight } from "lucide-react"
 
 const solutions = [
   {
-    title: "Substations",
-    image: "/images/substations.jpg",
-    description: "Complete solutions for electrical substations.",
+    title: "Overhead Line Connections",
+    image: "/images/brochure-live-grid.jpg",
+    description:
+      "Application reference for aerial distribution lines and field-installed connection points.",
   },
   {
-    title: "Underground Energy",
-    image: "/images/underground-energy.jpg",
-    description: "Underground cable systems for urban distribution.",
+    title: "Street Lighting & Service Branching",
+    image: "/images/brochure-field-testing.jpg",
+    description:
+      "Suitable for building T-connections, lighting branches, and insulated service tap scenarios.",
   },
   {
-    title: "Rural Energy Distribution",
-    image: "/images/rural-energy.jpg",
-    description: "Power distribution for rural and remote areas.",
+    title: "Substation Outgoing Lines",
+    image: "/images/brochure-grid-scene.jpg",
+    description:
+      "Utility-facing application context for outgoing lines and broader network connection work.",
   },
 ]
 
@@ -27,17 +30,17 @@ export function SolutionsSection() {
         <div className="flex items-end justify-between">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Our Solutions
+              Application Scenarios
             </h2>
             <p className="mt-2 max-w-xl text-pretty text-muted-foreground">
-              See below some of VA's core application solutions.
+              Focused on overhead distribution, service branching, and utility outgoing line use.
             </p>
           </div>
           <Link
-            href="#"
+            href="/about#application-scenarios"
             className="hidden items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80 md:flex"
           >
-            See all <ArrowRight className="h-4 w-4" />
+            Learn more <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
@@ -45,7 +48,7 @@ export function SolutionsSection() {
           {solutions.map((solution) => (
             <Link
               key={solution.title}
-              href="#"
+              href="/products"
               className="group relative overflow-hidden rounded-lg"
             >
               <div className="aspect-[4/3] overflow-hidden">
@@ -68,10 +71,10 @@ export function SolutionsSection() {
         </div>
 
         <Link
-          href="#"
+          href="/about#application-scenarios"
           className="mt-6 flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80 md:hidden"
         >
-          See all <ArrowRight className="h-4 w-4" />
+          Learn more <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
     </section>
